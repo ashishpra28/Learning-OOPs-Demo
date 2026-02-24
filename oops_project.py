@@ -14,13 +14,38 @@ class Chatbook:
                           5. press other keys to log out""")
         
         if user_input == '1':
-            pass 
+            self.signup() 
         elif user_input == '2':
-            pass 
+            self.singin()
         elif user_input=='3':
             pass
         elif user_input == '4':
             pass 
         else:
             pass 
+
+    def signup(self):
+        email = input("enter email")
+        password  = input("enter pass")
+
+        self.username = email
+        self.password = password
+        print("wow signed up succesfully")
+        print("\n")
+        self.menu()
+
+    def singin(self):
+        if self.username == '' and self.password =='':
+            print("bsdk phle signup krle teri mkc")
+        else:
+            new_user = input("la username bta")
+            new_pass = input("la pass bta")
+            if self.username == new_user and self.password == new_pass:
+                print("chl bdiua signup hogya")
+                self.loggedin = True
+                print(" ab bta kya krna chahega - \n")
+                print(self.menu())
+            else:
+                print("bsdk shi shi dalde")
+
 ram = Chatbook()
