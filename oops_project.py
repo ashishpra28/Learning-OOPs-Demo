@@ -11,16 +11,19 @@ class Chatbook:
                           2. for signin
                           3. for write as post
                           4. for message 
-                          5. press other keys to log out""")
+                          5. press f keys to log out
+                          
+                          
+                          -->""")
         
         if user_input == '1':
             self.signup() 
         elif user_input == '2':
             self.singin()
         elif user_input=='3':
-            pass
+            self.mssg()
         elif user_input == '4':
-            pass 
+            self.send_mssg()
         else:
             pass 
 
@@ -48,4 +51,25 @@ class Chatbook:
             else:
                 print("bsdk shi shi dalde")
 
-ram = Chatbook()
+    def mssg(self):
+        if self.loggedin == True:
+            print("mssg daal chl")
+            with open("msg.txt",'a') as f:
+                f.write(input()+"\n")
+        else:
+            print("bhnklode teri gaand tod dunga signin krle")
+        self.menu()
+    def send_mssg(self):
+        if self.loggedin == True: 
+            friend = input("friend ka naam bta")
+            print(f"{friend} isko mssg likh chl")
+            filename = f"{friend}.txt"
+            with open(filename, 'a') as f:
+                f.write(input()+"\n") 
+        else:
+            print("bhnklode teri gaand tod dunga signin krle")
+        print("or agr bahar jana chahta h to F key press kr")
+        self.menu()
+        print("byby lodu")
+
+user = Chatbook()
