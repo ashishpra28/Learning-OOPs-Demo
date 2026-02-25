@@ -1,11 +1,30 @@
 class Chatbook: 
+
+    # statis method 
+    __user_id = 0
     def __init__(self):
+        self.id = Chatbook.__user_id
+        Chatbook.__user_id += 1 
+        self.__user1 = "BKL"
         self.username = ''
         self.password = ''
         self.loggedin = ''
-        self.menu()
+        # self.menu()
 
+    @staticmethod
+    def get_id():
+        return Chatbook.__user_id
     
+    @staticmethod
+    def set_id(val):
+        Chatbook.__user_id = val 
+
+    def getter(self):
+        return self.__user1
+    
+    def setter(self, val):
+        self.__user1 = val
+
     def menu(self): 
         user_input = input("""1. for signup
                           2. for signin
